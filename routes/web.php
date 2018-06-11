@@ -8,6 +8,8 @@ Route::get('/product/{id}', 'ProductController@detail');
 
 Route::get('/contact', 'ContactController@show');
 
+
+// LOGIN SOCIAL
 Route::get('auth/google', 'Auth\LoginController@redirectToProvider')->name('google.login');
 
 Route::get('auth/google/callback', 'Auth\LoginController@handleProviderCallback');
@@ -16,6 +18,10 @@ Route::get('auth/facebook', 'Auth\LoginController@redirectToProviderfb')->name('
 
 Route::get('auth/facebook/callback', 'Auth\LoginController@handleProviderCallbackfb');
 
+
+// USER PAGES
 Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
+
+Route::get('/setting', 'SettingController@show')->middleware('auth');
