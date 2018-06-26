@@ -25,3 +25,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@home')->name('home');
 
 Route::get('/setting', 'SettingController@show')->middleware('auth');
+
+Route::post('/setting', 'SettingController@save')->middleware('auth');
